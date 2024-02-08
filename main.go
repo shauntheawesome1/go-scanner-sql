@@ -8,6 +8,6 @@ package main
 func main() {
 
 	println("Main Code Testing")
-	testPrint()
+	//testPrint()
 
 }
