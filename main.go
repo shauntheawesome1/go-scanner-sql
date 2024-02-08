@@ -30,6 +30,8 @@ func main() {
 		port_num = 3306
 	}
 	fmt.Println(ipaddr)
-	testPrint()
+	output_result := InitialScan(ipaddr, port_num)
+
+	fmt.Println(output_result)
 
 }
