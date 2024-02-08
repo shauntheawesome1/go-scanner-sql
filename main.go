@@ -5,9 +5,23 @@
 
 package main
 
+import (
+	"fmt"
+)
+
+var ipaddr string
+var port_num int
+
 func main() {
 
-	println("Main Code Testing")
-	//testPrint()
+	fmt.Println("Hit Main.main.")
+	fmt.Println("Enter Your IP Address: ")
+
+	fmt.Scanln(&ipaddr)
+
+	fmt.Println("Enter Port # to Scan: ")
+
+	fmt.Scanln(&port_num)
+	testPrint()
 
 }

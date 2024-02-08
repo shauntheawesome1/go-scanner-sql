@@ -28,16 +28,18 @@ type sql_evidence struct {
 }
 
 func init() {
-	fmt.Println("Port Scanning")
-	open := scanPort("tcp", "localhost", 3306) // default port
-	fmt.Printf("Port Open: %t\n", open)
+	fmt.Println("Hit Scanner.init")
+
 }
 
 func testPrint() {
-	println("Testing Function")
+	fmt.Println("Port Scanning")
+	open := scanPort("tcp", ipaddr, port_num) // default port
+	fmt.Printf("Port Open: %t\n", open)
 }
 
 func scanPort(protocol, hostname string, port int) bool {
+	fmt.Println("Hit scanner.scanPort")
 	address := hostname + ":" + strconv.Itoa(port)
 	conn, err := net.DialTimeout(protocol, address, 60*time.Second)
 
