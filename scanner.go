@@ -13,3 +13,7 @@ type arguments struct {
 func init() {
 	println("Testing")
 }
+
+func testPrint() {
+	println("Testing Function")
+}
