@@ -80,6 +80,9 @@ func scanPort(protocol, hostname string, port int) ScanOutput {
 
 	lenBuf := make([]byte, 4)
 	fmt.Println("Created Buffer1")
+	fmt.Println(lenBuf)
+	fmt.Printf("After lenBuf")
+	fmt.Printf("Before Conn Read")
 	_, err = conn.Read(lenBuf)
 	fmt.Println("Connection Passed1")
 	if err != nil {
@@ -106,6 +109,7 @@ func scanPort(protocol, hostname string, port int) ScanOutput {
 
 	buf := make([]byte, lenData)
 	fmt.Println("Created Buffer2")
+	fmt.Println(lenData)
 	_, err = conn.Read(buf)
 	fmt.Println("Connection Passed2")
 	if err == io.EOF {
@@ -131,7 +135,7 @@ func InitialScan(hostname string, port_num int) []ScanOutput {
 
 	fmt.Println("Port Scanning")
 
-	results = append(results, scanPort("tcp", ipaddr, port_num)) // default port = 1332
+	results = append(results, scanPort("tcp", ipaddr, port_num)) // default port = 3306
 	fmt.Printf("Port Open: %d\n", port_num)
 
 	return results
@@ -144,3 +148,4 @@ func msgLength(b []byte) (int32, error) {
 
 	return result, err
 }
+// EOF
