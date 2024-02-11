@@ -78,12 +78,15 @@ func scanPort(protocol, hostname string, port int) ScanOutput {
 		return output
 	}*/
 
-	lenBuf := make([]byte, 4)
-	fmt.Println("Created Buffer1")
-	fmt.Println(lenBuf)
-	fmt.Printf("After lenBuf")
-	fmt.Printf("Before Conn Read")
-	_, err = conn.Read(lenBuf)
+	lenBuf := make([]byte, 4000)
+	/*fmt.Println("Created Buffer1")
+	//fmt.Println(lenBuf)
+	fmt.Println("After lenBuf")
+	fmt.Println("Before Conn Read")*/
+	output.Message, err = conn.Read(lenBuf)
+	fmt.Println("Output.Message is: %d", output.Message)
+	
+	fmt.Println("After Message")
 	fmt.Println("Connection Passed1")
 	if err != nil {
 		output.State = "Closed"
@@ -108,9 +111,11 @@ func scanPort(protocol, hostname string, port int) ScanOutput {
 	}*/
 
 	buf := make([]byte, lenData)
-	fmt.Println("Created Buffer2")
-	fmt.Println(lenData)
-	_, err = conn.Read(buf)
+	/*fmt.Println("Created Buffer2")
+	fmt.Println(lenData)*/
+	output.Message, err = conn.Read(buf)
+
+	fmt.Println("Output.Message is: %d", output.Message)
 	fmt.Println("Connection Passed2")
 	if err == io.EOF {
 		output.State = "Closed"
